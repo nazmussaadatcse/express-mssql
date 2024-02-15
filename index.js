@@ -41,17 +41,17 @@ const checkDatabaseConnection = async () => {
 };
 
 
-app.get('/data', async (req, res) => {
-    // await connectToDatabase();
+// app.get('/data', async (req, res) => {
+//     // await connectToDatabase();
 
-    try {
-        const result = await sql.query('SELECT * FROM table_name');
-        res.send(result.recordset);
-    } catch (error) {
-        console.error("Error executing query:", error.message);
-        res.status(500).send("Internal Server Error");
-    }
-});
+//     try {
+//         const result = await sql.query('SELECT * FROM table_name');
+//         res.send(result.recordset);
+//     } catch (error) {
+//         console.error("Error executing query:", error.message);
+//         res.status(500).send("Internal Server Error");
+//     }
+// });
 
 
 app.use(apiRouter);
