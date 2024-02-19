@@ -1,9 +1,10 @@
 import catchAsync from "../libs/catchasync.lib.js";
-import { getAll, postOne ,deleteOne } from "../services/person.service.js";
+import personService from "../services/person.service.js";
+import { UserDTO } from "../dto/dto.js";
 
 const getAllPersons = catchAsync(async (req, res, next) => {
     try {
-        var persons = await getAll();
+        var persons = await personService.getAll();
         console.log(persons)
         // return persons;
         return res.status(200).json(persons);
@@ -15,8 +16,16 @@ const getAllPersons = catchAsync(async (req, res, next) => {
 
 const postPerson = catchAsync(async (req, res, next) => {
     try {
-        var persons = await postOne();
-        console.log(persons)
+
+        const person = new UserDTO({
+            Name: 'Rana vaiii',
+            GenderID: 185456
+        })
+
+
+        var persons = await personService.postOne(person);
+        console.log('persons', persons)
+        console.log('res.status', res.status)
         // return persons;
         return res.status(200).json(persons);
     } catch (error) {
@@ -27,7 +36,7 @@ const postPerson = catchAsync(async (req, res, next) => {
 
 const deletePerson = catchAsync(async (req, res, next) => {
     try {
-        var persons = await deleteOne();
+        var persons = await personService.deleteOne();
         console.log(persons)
         // return persons;
         return res.status(200).json(persons);

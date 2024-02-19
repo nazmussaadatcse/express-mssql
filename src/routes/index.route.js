@@ -9,7 +9,7 @@ const secretKey = process.env.SECRET_KEY;
 
 apiRouter.get('/person', personController.getAllPersons)
 apiRouter.post('/person', personController.postPerson)
-apiRouter.destroy('/person', personController.deletePerson)
+apiRouter.delete('/person', personController.deletePerson)
 
 
 
