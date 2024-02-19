@@ -34,7 +34,7 @@ apiRouter.post('/profile', verifyJwt, (req, res) => {
                 result: 'Invalid token'
             })
         }
-        else{
+        else {
             res.json({
                 message: 'profile accessed',
                 authData
@@ -43,6 +43,10 @@ apiRouter.post('/profile', verifyJwt, (req, res) => {
     })
 
 })
+
+apiRouter.get('/', (req, res) => {
+    res.send('FIS MSSQL Express server online!');
+});
 
 
 export default apiRouter;

@@ -8,6 +8,9 @@ const app = express();
 dotenv.config()
 app.use(express.json())
 
+import cors from 'cors';
+app.use(cors({ origin: '*' }));
+
 
 // const config = {
 //     database: process.env.MSSQL_DATABASE,
@@ -20,18 +23,18 @@ app.use(express.json())
 //   }
 const checkDatabaseConnection = async () => {
     try {
-      // Authenticate with the database
-      await db.sequelize.authenticate();
-      console.log('Connection to the database has been established successfully.');
-  } catch (error) {
-      console.error('Unable to connect to the database:', error);
-  }
+        // Authenticate with the database
+        await db.sequelize.authenticate();
+        console.log('Connection to the database has been established successfully.');
+    } catch (error) {
+        console.error('Unable to connect to the database:', error);
+    }
 }
 
 // checkDatabaseConnection()
 
 
- const connectToDatabase = async () => {
+const connectToDatabase = async () => {
     try {
         await sql.connect(config);
         console.log("MSSQL DB Connected");

@@ -18,14 +18,16 @@ const postPerson = catchAsync(async (req, res, next) => {
     try {
 
         const person = new UserDTO({
-            Name: 'Rana vaiii',
-            GenderID: 185456
+            name: req.body.name,
+            email: req.body.email,
+            status: req.body.status,
+            role: req.body.role
         })
 
 
         var persons = await personService.postOne(person);
-        console.log('persons', persons)
-        console.log('res.status', res.status)
+        console.log('persons=========', persons)
+        // console.log('res.status', res.status)
         // return persons;
         return res.status(200).json(persons);
     } catch (error) {

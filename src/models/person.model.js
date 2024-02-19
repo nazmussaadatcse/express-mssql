@@ -9,8 +9,10 @@ function model(sequelize) {
       autoIncrement: true,
       primaryKey: true,
     },
-    Name: { type: DataTypes.STRING(30), allowNull: false },
-    GenderID: { type: DataTypes.INTEGER, allowNull: true },
+    name: { type: DataTypes.STRING(30), allowNull: false },
+    status: { type: DataTypes.STRING(30), allowNull: false },
+    role: { type: DataTypes.STRING(30), allowNull: false },
+    email: { type: DataTypes.STRING(30), allowNull: true },
     createdAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
     updatedAt: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW }
   };
