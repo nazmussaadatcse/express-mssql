@@ -4,7 +4,7 @@ import { UserDTO } from "../dto/dto.js";
 
 const getAllPersons = catchAsync(async (req, res, next) => {
     try {
-        var persons = await personService.getAll();
+        var persons = await personService.getAllPerson();
         console.log(persons)
         // return persons;
         return res.status(200).json(persons);
@@ -14,7 +14,7 @@ const getAllPersons = catchAsync(async (req, res, next) => {
     }
 })
 
-const postPerson = catchAsync(async (req, res, next) => {
+const postOnePerson = catchAsync(async (req, res, next) => {
     try {
 
         const person = new UserDTO({
@@ -25,7 +25,7 @@ const postPerson = catchAsync(async (req, res, next) => {
         })
 
 
-        var persons = await personService.postOne(person);
+        var persons = await personService.postOnePerson(person);
         console.log('persons=========', persons)
         // console.log('res.status', res.status)
         // return persons;
@@ -36,9 +36,40 @@ const postPerson = catchAsync(async (req, res, next) => {
     }
 })
 
-const deletePerson = catchAsync(async (req, res, next) => {
+const deleteOnePerson = catchAsync(async (req, res, next) => {
     try {
-        var persons = await personService.deleteOne();
+        const personId = req.params.id;
+
+        var persons = await personService.deleteSinglePerson(personId);
+        console.log(persons)
+        // return persons;
+        return res.status(200).json(persons);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ statusCode: 500, error: "Something went wrong" });
+    }
+})
+
+
+const pendingPerson = catchAsync(async (req, res, next) => {
+    try {
+        const personId = req.params.id;
+
+        var persons = await personService.pendingUser(personId);
+        console.log(persons)
+        // return persons;
+        return res.status(200).json(persons);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ statusCode: 500, error: "Something went wrong" });
+    }
+})
+
+const personToAdmin = catchAsync(async (req, res, next) => {
+    try {
+        const personId = req.params.id;
+
+        var persons = await personService.userToAdmin(personId);
         console.log(persons)
         // return persons;
         return res.status(200).json(persons);
@@ -52,6 +83,8 @@ const deletePerson = catchAsync(async (req, res, next) => {
 
 export default {
     getAllPersons,
-    postPerson,
-    deletePerson
+    postOnePerson,
+    deleteOnePerson,
+    pendingPerson,
+    personToAdmin
 }

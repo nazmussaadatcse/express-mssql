@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 import personModel from "../models/person.model.js";
+import lunchModel from '../models/lunches.model.js'
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -22,6 +23,7 @@ const db = {};
 db.sequelize = sequelize;
 // db.cuisines = cuisineModel(sequelize);
 db.persons = personModel(sequelize);
+db.lunches = lunchModel(sequelize);
 // db.refreshtokens = refreshTokenModel(sequelize);
 // sync all models with database
 // sequelize.sync({ alter: true });
