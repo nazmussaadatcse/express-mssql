@@ -3,12 +3,7 @@ import { DataTypes } from "sequelize";
 
 function model(sequelize) {
   const attributes = {
-    ID: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
-      primaryKey: true,
-    },
+    ID: { type: DataTypes.INTEGER, allowNull: false, autoIncrement: true, primaryKey: true, },
     name: { type: DataTypes.STRING(30), allowNull: false },
     status: { type: DataTypes.STRING(30), allowNull: false },
     role: { type: DataTypes.STRING(30), allowNull: false },

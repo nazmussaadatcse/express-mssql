@@ -7,3 +7,13 @@ export class UserDTO {
         this.role = userData.role;
     }
 }
+// single lunch DTO 
+export class SingleLunchDTO {
+    constructor(SingleLunchData) {
+        this.name = SingleLunchData.name;
+        this.email = SingleLunchData.email;
+        this.bookBy = SingleLunchData.bookBy;
+        this.type = SingleLunchData.type;
+        this.lunchQuantity = SingleLunchData.lunchQuantity;
+    }
+}
