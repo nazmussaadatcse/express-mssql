@@ -43,7 +43,6 @@ const postSingleLunch = catchAsync(async (req, res, next) => {
 const updateSingleLunch = catchAsync(async (req, res, next) => {
     try {
 
-        const lunchId = req.params.id;
 
         const guestLunchUpdate = new SingleLunchDTO({
             name: req.body.name,
@@ -54,7 +53,7 @@ const updateSingleLunch = catchAsync(async (req, res, next) => {
             lunchQuantity: req.body.lunchQuantity,
         })
 
-        var persons = await lunchService.updateGuestLunch(guestLunchUpdate, lunchId);
+        var persons = await lunchService.updateGuestLunch(guestLunchUpdate);
         console.log(persons)
         // return persons;
         return res.status(200).json(persons);

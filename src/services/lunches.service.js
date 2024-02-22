@@ -7,9 +7,9 @@ const postOneLunch = async (lunch) => {
 
 const allLunches = async () => {
     return await db.lunches.findAll();
-  };
+};
 
-const updateGuestLunch = async (guestLunchUpdate, lunchId) => {
+const updateGuestLunch = async (guestLunchUpdate) => {
     try {
         const updatedLunch = await db.lunches.update(
             {
@@ -22,7 +22,7 @@ const updateGuestLunch = async (guestLunchUpdate, lunchId) => {
             },
             {
                 where: {
-                    ID: lunchId,
+                    type: 'guest',
                 },
             }
         );
@@ -30,7 +30,11 @@ const updateGuestLunch = async (guestLunchUpdate, lunchId) => {
         console.log(updatedLunch);
 
         //'findByPk' to find by primary key
-        const updatedRecord = await db.lunches.findByPk(lunchId);
+        const updatedRecord = await db.lunches.findOne({
+            where: {
+                type: 'guest',
+            },
+        });
         return updatedRecord;
     } catch (error) {
         throw error;
