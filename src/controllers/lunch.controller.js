@@ -3,6 +3,18 @@ import lunchService from "../services/lunches.service.js";
 import { SingleLunchDTO } from "../dto/dto.js";
 
 
+const getAllLunch = catchAsync(async (req, res, next) => {
+    try {
+        var lunches = await lunchService.allLunches();
+        console.log(lunches)
+        return res.status(200).json(lunches);
+    } catch (error) {
+        console.log(error);
+        return res.status(500).json({ statusCode: 500, error: "Something went wrong" });
+    }
+})
+
+
 const postSingleLunch = catchAsync(async (req, res, next) => {
     try {
 
@@ -58,5 +70,6 @@ const updateSingleLunch = catchAsync(async (req, res, next) => {
 
 export default {
     postSingleLunch,
-    updateSingleLunch
+    updateSingleLunch,
+    getAllLunch
 }

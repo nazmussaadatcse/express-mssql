@@ -5,6 +5,10 @@ const postOneLunch = async (lunch) => {
     return await db.lunches.create(lunch);
 };
 
+const allLunches = async () => {
+    return await db.lunches.findAll();
+  };
+
 const updateGuestLunch = async (guestLunchUpdate, lunchId) => {
     try {
         const updatedLunch = await db.lunches.update(
@@ -36,6 +40,7 @@ const updateGuestLunch = async (guestLunchUpdate, lunchId) => {
 
 
 export default {
+    allLunches,
     postOneLunch,
     updateGuestLunch
 }

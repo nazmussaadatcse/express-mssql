@@ -14,6 +14,7 @@ apiRouter.patch('/person/:id', personController.pendingPerson)
 apiRouter.patch('/personToAdmin/:id', personController.personToAdmin)
 apiRouter.delete('/person/:id', personController.deleteOnePerson)
 
+apiRouter.get('/lunch', lunchController.getAllLunch)
 apiRouter.post('/lunch', lunchController.postSingleLunch)
 apiRouter.patch('/lunch/:id', lunchController.updateSingleLunch)
 

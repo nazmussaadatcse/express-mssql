@@ -12,7 +12,7 @@ const postOnePerson = async (person) => {
 const deleteSinglePerson = async (personId) => {
   return await db.persons.destroy({
     where: {
-      id: personId
+      ID: personId
     }
   },);
 };

@@ -11,6 +11,7 @@ export class UserDTO {
 export class SingleLunchDTO {
     constructor(SingleLunchData) {
         this.name = SingleLunchData.name;
+        this.note = SingleLunchData.note;
         this.email = SingleLunchData.email;
         this.bookBy = SingleLunchData.bookBy;
         this.type = SingleLunchData.type;

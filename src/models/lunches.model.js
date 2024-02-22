@@ -7,6 +7,7 @@ function model(sequelize) {
         name: { type: DataTypes.STRING(30), allowNull: false },
         note: { type: DataTypes.STRING(30), allowNull: false },
         email: { type: DataTypes.STRING(30), allowNull: false },
+        date: { type: DataTypes.DATE, allowNull: false, defaultValue: DataTypes.NOW },
         bookBy: { type: DataTypes.STRING(30), allowNull: false },
         type: { type: DataTypes.STRING(30), allowNull: false },
         lunchQuantity: { type: DataTypes.INTEGER, allowNull: false }
