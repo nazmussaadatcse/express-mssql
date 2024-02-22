@@ -18,7 +18,7 @@ const updateGuestLunch = async (guestLunchUpdate, lunchId) => {
             },
             {
                 where: {
-                    id: lunchId,
+                    ID: lunchId,
                 },
             }
         );
